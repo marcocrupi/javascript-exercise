@@ -1,41 +1,41 @@
-# REDUX TUTORIAL EXERCISE
+# JAVASCRIPT EXERCISE
 
-## Dispatch Actions to the Store
+Soluzione agli esercizi in formato .zip 
 
-- store.js
+## 01 - Definire la variabile
+
+In questo esercizio si sta cercando di far stampare la frase "Paul plays football", ma se si esegue il codice si noterà l'errore "personName is not defined".
+
+Cosa occorre fare per fixare l'errore?
 
 ```js
-import { createStore } from "redux";
-
-const initialState = 0;
-const countReducer = (state = initialState, action) => {
-  switch (action.type) {
-    case "increment":
-      return state + 1;
-    case "decrement":
-      return state - 1;
-    default:
-      return state;
+function canPlay() {
+  let personName = "Paul";
+  if (true) {
+    personName += " plays football";
   }
-};
+  console.log(personName);
+}
 
-const store = createStore(countReducer);
+canPlay();
+```
 
-// Let’s get back to our counter application. The count starts at 0 and we want to increment it up to 2.
-// At the bottom of store.js dispatch two actions with a type of 'increment' using the store.dispatch() method.
-store.dispatch({ type: "increment" });
-store.dispatch({ type: "increment" });
+## 02 - 02 - Variabile readonly
 
-// Let’s modify the countReducer function so that it can handle 'decrement' actions as well.
-// Add an additional case to the countReducer function that handles 'decrement' action types and returns state - 1.
-console.log(store.getState());
+L'obiettivo di questo esercizio è quello di rendere `personName` una variabile di sola lettura. Qual è la keyword da utilizzare per dichiarare una variabile `readonly`? L'esercizio risulta corretto se in console si ottiene Uncaught TypeError: `Assignment to constant variable`.
 
-// Now, let’s dispatch some 'decrement' action to the store.
-// At the bottom of store.js , dispatch 3 actions with a type of 'decrement'.
-store.dispatch({ type: "decrement" });
-store.dispatch({ type: "decrement" });
-store.dispatch({ type: "decrement" });
+```js
+function canPlay() {
+  const personName = 'Paul';
 
-// Finally, print to the console the final value of store.getState(). The final state should be -1.
-console.log(store.getState());
+  if (true) {
+    personName = 'George'; // Argh! Voglio che personName sia una variabile di sola lettura
+  }
+
+  personName += ' plays football';
+
+  console.log(personName);
+}
+
+canPlay();
 ```
