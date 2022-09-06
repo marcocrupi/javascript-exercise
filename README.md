@@ -277,3 +277,24 @@ const person = {
 const keys = getKeys(person);
 console.log(keys);
 ```
+
+## 10 - Conditionals & Loops
+
+Implementare, tramite blocchi condizionali e/o cicli, la funzione `sumUntil`, la quale, dato in input un valore, effettua la somma di tutti i numeri che vanno da `1` fino al valore passato come parametro
+
+```js
+function sumUntil(maxValue) {
+  let array = [];
+  for (let i = 0; i <= maxValue; i++) {
+    array.push(i);
+    console.log(array);
+  }
+  const summedNums = array.reduce((accumulator, currentValue) => {
+    return accumulator + currentValue;
+  }, 0);
+  console.log(summedNums);
+  return summedNums;
+}
+
+console.log(sumUntil(5));
+```
