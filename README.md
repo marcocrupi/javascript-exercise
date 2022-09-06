@@ -317,7 +317,7 @@ log(sum(2, 5));
 
 ## 12 - Arrow functions
 
-Trasformare la variabile funzione `concat` in una arrow function
+Trasformare la variabile funzione `concat` in una arrow function.
 
 ```js
 const concat = (arr1, arr2) => {
