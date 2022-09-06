@@ -314,3 +314,45 @@ const log = value => {
 
 log(sum(2, 5));
 ```
+
+## 12 - Arrow functions
+
+Trasformare la variabile funzione `concat` in una arrow function
+
+```js
+const concat = (arr1, arr2) => {
+  return arr1.concat(arr2);
+}
+
+console.log(concat([2, 4], [5, 1]));
+```
+
+## 13 - Arrow functions
+
+Trasforma le variabili funzione in arrow functions e concatenale in modo tale che venga stampato sulla console il risultato della seguente operazione matematica: `((2 + 4) * (5 + 2) - 2) / 5`
+
+```js
+const sum = (a, b) => {
+  return a + b;
+}
+
+const subtract = (a, b) => {
+  return a - b;
+}
+
+const multiply = (a, b) => {
+  return a * b;
+}
+
+const divide = (a, b) => {
+  return a / b;
+}
+
+const value = divide(subtract(multiply(sum(2, 4), sum(5, 2)), 2),5);
+
+const log = (value) => {
+  console.log(value);
+};
+
+log(value);
+```
