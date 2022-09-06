@@ -298,3 +298,19 @@ function sumUntil(maxValue) {
 
 console.log(sumUntil(5));
 ```
+
+## 11 - Arrow functions
+
+Trasformare le due variabili funzione (`sum` e `log`) in due arrow functions
+
+```js
+const sum = (a, b) => {
+  return a + b;
+}
+
+const log = value => {
+  console.log(value);
+}
+
+log(sum(2, 5));
+```
