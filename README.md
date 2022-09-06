@@ -1,6 +1,6 @@
 # JAVASCRIPT EXERCISE
 
-Soluzione agli esercizi in formato .zip 
+Soluzione agli esercizi in formato .zip contenuti nella cartella "Exercises".
 
 ## 01 - Definire la variabile
 
@@ -151,7 +151,7 @@ console.log(otherSalary);
 
 ## 06 - Conditionals & Loops
 
-Implementare, tramite blocchi condizionali e/o cicli, la funzione `adultFilter`, la quale, dato un array di persone, filtra e restituisce soltanto coloro che sono maggiorenni
+Implementare, tramite blocchi condizionali e/o cicli, la funzione `adultFilter`, la quale, dato un array di persone, filtra e restituisce soltanto coloro che sono maggiorenni.
 
 ```js
 function adultFilter(persons) {
@@ -191,7 +191,7 @@ console.log("adults", adults);
 
 ## 07 - Conditionals & Loops
 
-Implementare, tramite blocchi condizionali e/o cicli, la funzione `nicknameMap`, la quale, dato un array di persone, crea un array di nickname. Il nickname deve essere formato nel seguente modo: `<name>-<age>`
+Implementare, tramite blocchi condizionali e/o cicli, la funzione `nicknameMap`, la quale, dato un array di persone, crea un array di nickname. Il nickname deve essere formato nel seguente modo: `<name>-<age>`.
 
 ```js
 function nicknameMap(persons) {
@@ -222,7 +222,7 @@ console.log(nicknames);
 
 ## 08 - Conditionals & Loops
 
-Implementare, tramite blocchi condizionali e/o cicli, la funzione `calculateAverageAge`, la quale, dato un array di persone, calcola l'età media
+Implementare, tramite blocchi condizionali e/o cicli, la funzione `calculateAverageAge`, la quale, dato un array di persone, calcola l'età media.
 
 ```js
 function calculateAverageAge(persons) {
@@ -258,7 +258,7 @@ console.log("Average age:", averageAge);
 
 ## 09 - Conditionals & Loops
 
-Implementare, tramite blocchi condizionali e/o cicli, la funzione `getKeys`, la quale, dato in input un qualsiasi oggetto, restituisce la lista delle chiavi presenti al suo interno
+Implementare, tramite blocchi condizionali e/o cicli, la funzione `getKeys`, la quale, dato in input un qualsiasi oggetto, restituisce la lista delle chiavi presenti al suo interno.
 
 ```js
 function getKeys(obj) {
@@ -280,7 +280,7 @@ console.log(keys);
 
 ## 10 - Conditionals & Loops
 
-Implementare, tramite blocchi condizionali e/o cicli, la funzione `sumUntil`, la quale, dato in input un valore, effettua la somma di tutti i numeri che vanno da `1` fino al valore passato come parametro
+Implementare, tramite blocchi condizionali e/o cicli, la funzione `sumUntil`, la quale, dato in input un valore, effettua la somma di tutti i numeri che vanno da `1` fino al valore passato come parametro.
 
 ```js
 function sumUntil(maxValue) {
@@ -301,7 +301,7 @@ console.log(sumUntil(5));
 
 ## 11 - Arrow functions
 
-Trasformare le due variabili funzione (`sum` e `log`) in due arrow functions
+Trasformare le due variabili funzione (`sum` e `log`) in due arrow functions.
 
 ```js
 const sum = (a, b) => {
@@ -329,7 +329,7 @@ console.log(concat([2, 4], [5, 1]));
 
 ## 13 - Arrow functions
 
-Trasforma le variabili funzione in arrow functions e concatenale in modo tale che venga stampato sulla console il risultato della seguente operazione matematica: `((2 + 4) * (5 + 2) - 2) / 5`
+Trasforma le variabili funzione in arrow functions e concatenale in modo tale che venga stampato sulla console il risultato della seguente operazione matematica: `((2 + 4) * (5 + 2) - 2) / 5`.
 
 ```js
 const sum = (a, b) => {
