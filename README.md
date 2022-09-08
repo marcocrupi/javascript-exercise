@@ -407,3 +407,30 @@ console.log(pow5(4));
 console.log(pow5(2));
 console.log(pow5(8));
 ```
+
+## 16 - Closure
+
+Implementare la funzione `createStore` che crea un array vuoto di prodotti e restituisce una closure che si occupa di aggiungere prodotti allo store. Per ogni prodotto aggiunto allo store eseguire il `console.log` dell'intero store.
+
+```js
+function createStore() {
+  let prodotti = [];
+  return function (prodotto) {
+    prodotti.push(prodotto);
+    console.log(prodotti);
+  };
+}
+
+const redPants = { id: 1, name: "Red Pants" };
+const whiteHat = { id: 2, name: "White Hat" };
+const blackSneakers = { id: 3, name: "Black Sneakers" };
+
+console.log("--- Dress Store ---");
+const dressStore = createStore();
+dressStore(redPants);
+dressStore(whiteHat);
+
+console.log("--- Shoes Store ---");
+const shoesStore = createStore();
+shoesStore(blackSneakers);
+```
