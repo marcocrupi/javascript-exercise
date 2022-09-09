@@ -1,4 +1,4 @@
-# JAVASCRIPT EXERCISE
+# JAVASCRIPT EXERCISES SOLUTIONS
 
 Soluzione agli esercizi in formato .zip contenuti nella cartella "Exercises".
 
