@@ -526,3 +526,30 @@ console.log(factory(6));
 console.log(factory(5));
 ```
 
+## 19 - Object copying
+
+In questo esercizio sono stati creati due oggetti: `person1` e `person2`. All'oggetto `person2` è stato assegnato l'oggetto `person1`. Si desidera che venga modificata la proprietà `firstName` dell'oggetto `person2` in "Simon".
+
+Spiega con un commento scritto il perché, modificando l'oggetto `person2`, viene modificato anche l'oggetto `person1`.
+
+```js
+const person1 = {
+  firstName: 'John',
+  lastName: 'Doe',
+  age: 25
+};
+
+const person2 = person1;
+
+// Modifica la proprietà "firstName" di person2 in "Simon"
+person2.firstName = "Simon";
+
+console.log(person1);
+console.log(person2);
+
+// Modificando l'oggetto `person2`, viene modificato anche l'oggetto `person1`
+// perché i due oggetti fanno riferimento alla stessa allocazione di memoria,
+// questa si chiama assegnazione per valore.
+```
+
+
