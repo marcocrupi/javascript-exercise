@@ -644,4 +644,31 @@ console.log(person1);
 console.log(person2);
 ```
 
+## 21 - Object copying
+
+In questo esercizio si desidera creare una copia esatta di `person1` e assegnarla alla variabile `person2`, tuttavia utilizzando il metodo `Object.assign()` e modificando la proprietà `address`, questa viene modificata anche per l'oggetto `person1`. Come posso eseguire un "deep copying" dell'oggetto `person1`?
+
+```js
+const person1 = {
+  firstName: 'John',
+  lastName: 'Doe',
+  age: 25,
+  address: {
+    state: 'Italy',
+    region: 'Lazio',
+    city: 'Rome'
+  }
+};
+
+// Argh! Nonostante abbia utilizzato Object.assign(), modificando la proprietà "address",
+// viene modificato il riferimento all'oggetto person1
+const person2 = JSON.parse(JSON.stringify(person1));
+
+person2.address.region = 'Lombardia';
+person2.address.city = 'Milan';
+
+console.log("person 1", person1);
+console.log("person 2", person2);
+```
+
 
