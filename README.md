@@ -671,4 +671,24 @@ console.log("person 1", person1);
 console.log("person 2", person2);
 ```
 
+## 22 - Object references
 
+Creare all'interno dell'oggetto `person` i metodi: `fullName()` e `info()`, i quali utilizzano le proprietà dell'oggetto per stampare rispettivamente il nome completo e le informazioni anagrafiche comprensive di posizione lavorativa.
+
+```js
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 25,
+  job: "Web Developer",
+  fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+  info() {
+    return `${this.age} - ${this.job}`;
+  },
+};
+
+console.log(person.fullName()); // John Doe
+console.log(person.info()); // John Doe, 25 - Web Developer
+```
