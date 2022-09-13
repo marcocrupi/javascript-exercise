@@ -763,3 +763,23 @@ simon.lastName = "Collins";
 
 console.log(simon.fullName()); // Simon Collins
 ```
+
+## 26 - Object constructor
+
+Implementare la funzione `Person` che accetta e assegna due argomenti: `firstName` e `lastName` e definisce il metodo `fullName()`, il quale si occupa di concatenare e restituire il nome completo. Infine, istanziare due oggetti: `john` e `simon` tramite la keyword `new` utilizzando la funzione `Person` e stampare in console il nome completo.
+
+```js
+function Person(firstName, lastName) {
+  this.firstName = firstName;
+  this.lastName = lastName;
+  this.fullName = function() {
+    return `${this.firstName} ${this.lastName}`
+  }
+}
+
+let john = new Person("John", "Doe")
+let simon = new Person("Simon", "Collins");
+
+console.log(john.fullName()); // John Doe
+console.log(simon.fullName()); // Simon Collins
+```
