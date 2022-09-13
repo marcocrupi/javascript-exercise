@@ -707,3 +707,18 @@ const person = {
 // Print values of person using Object.keys
 console.log(Object.keys(person));
 ```
+
+## 24 - Object methods
+
+Utilizzando l'oggetto `person` stampare in console i suoi valori, provando ad utilizzare il metodo `Object.values`.
+
+```js
+const person = {
+  firstName: 'Mario',
+  lastName: 'Rossi',
+  age: 25
+}
+
+// Print values of person using Object.values
+console.log(Object.values(person));
+```
