@@ -692,3 +692,18 @@ const person = {
 console.log(person.fullName()); // John Doe
 console.log(person.info()); // John Doe, 25 - Web Developer
 ```
+
+## 23 - Object methods
+
+Utilizzando l'oggetto `person`, stampare in console le coppie chiave/valore, provando ad utilizzare il metodo `Object.keys`.
+
+```js
+const person = {
+  firstName: 'Mario',
+  lastName: 'Rossi',
+  age: 25
+}
+
+// Print values of person using Object.keys
+console.log(Object.keys(person));
+```
