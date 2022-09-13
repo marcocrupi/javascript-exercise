@@ -722,3 +722,44 @@ const person = {
 // Print values of person using Object.values
 console.log(Object.values(person));
 ```
+
+## 25 - Object constructor
+
+Creare l'oggetto `person` e definire al suo interno i metodi getters / setters per le proprietà: `firstName` e `lastName`. Definire all'interno dell'oggetto anche il metodo `fullName()` che si occupa di concatenare e restituire il nome e il cognome della persona. Infine, attraverso Object.create(), costruire due oggetti: `john` e `simon`, assegnare ad entrambi il valore di `firstName` e `lastName` e stampare in console il nome completo.
+
+```js
+const person = {
+  _firstName: "Marco",
+  _lastName: "Crupi",
+  get firstName() {
+    return this._firstName;
+  },
+  get lastName() {
+    return this._lastName;
+  },
+  fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  },
+  set firstName(newFirstName){
+    this._firstName = newFirstName;
+  },
+  set lastName(newLastName){
+    this._lastName = newLastName;
+  }
+};
+
+console.log(person.fullName());
+
+const john = Object.create(person);
+const simon = Object.create(person);
+
+john.firstName = "John";
+john.lastName = "Doe";
+
+console.log(john.fullName()); // John Doe
+
+simon.firstName = "Simon";
+simon.lastName = "Collins";
+
+console.log(simon.fullName()); // Simon Collins
+```
