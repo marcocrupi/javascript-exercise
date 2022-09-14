@@ -798,3 +798,24 @@ const person = {
 console.log(person?.address?.city);
 console.log(person?.fullName?.()); 
 ```
+
+## 28 - Optional chaining
+
+In questo esempio si sta cercando di controllare se è stato specificato un valore per la proprietà `city`, tuttavia il codice si presenta in maniera poco leggibile.
+Come si può migliorare e semplificare il codice d'esempio?
+
+```js
+const order = {};
+
+ if (
+   order &&
+   order.customer &&
+   order.customer.address &&
+   !order.customer.address.city
+ ) {
+   console.log("City is required");
+ }
+
+const optionalChaining = !order?.customer?.address?.city || "City is required";
+console.log(optionalChaining);
+```
