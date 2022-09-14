@@ -783,3 +783,18 @@ let simon = new Person("Simon", "Collins");
 console.log(john.fullName()); // John Doe
 console.log(simon.fullName()); // Simon Collins
 ```
+
+
+## 27 - Optional chaining
+
+In questo esempio si sta cercando di eseguire il console.log di due proprietà non presenti all'interno dell'oggetto `person`, come posso sistemare il codice d'esempio così da non ricevere un errore in console?
+
+```js
+const person = {
+  firstName: 'John',
+  lastName: 'Doe'
+};
+
+console.log(person?.address?.city);
+console.log(person?.fullName?.()); 
+```
