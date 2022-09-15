@@ -1188,22 +1188,20 @@ Definire la classe `BankAccountVip` che estendendo dalla classe `BankAccount`, o
 
 ```js
 class BankAccount {
-  #amount = 0;
-
-  constructor(initialAmount) {
-    this.#amount = initialAmount;
+   constructor(initialAmount) {
+    this._amount = initialAmount;
   }
 
   deposit(amount) {
-    this.#amount += amount;
+    this._amount += amount;
   }
 
   withdraw(amount) {
-    this.#amount -= amount;
+    this._amount -= amount;
   }
 
   view() {
-    console.log(this.#amount);
+    console.log(this._amount);
   }
 }
 
