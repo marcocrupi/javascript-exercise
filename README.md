@@ -1086,3 +1086,19 @@ const noteInProgress = firstUncompletedNote(notes);
 console.log('All notes: ', notes);
 console.log('First note in progress: ', noteInProgress);
 ```
+
+## 34 - Classes
+
+Definire la classe `Person` che accetta due parametri nel costruttore `firstName` e `lastName`.
+
+```js
+class Person {
+    constructor(firstName, lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
+    }
+}
+
+const developer = new Person('Mario', 'Rossi');
+console.log(`${developer.firstName} ${developer.lastName}`);
+```
