@@ -1150,3 +1150,34 @@ const obj = {
 const person = Person.fromObject(obj);
 console.log(`${person.firstName} ${person.lastName}`);
 ```
+
+## 37 - Classes
+
+Definire la classe `BankAccount` che, dato in input un importo iniziale, consente di eseguire operazioni di deposito, ritiro e visualizzazione sul proprio conto corrente. La classe in questione dovrà implementare i seguenti metodi:
+
+* `deposit`: un metodo pubblico che consente di aggiungere fondi al proprio conto corrente.
+* `withdraw`: un metodo pubblico che consente di ritirare fondi dal proprio conto corrente.
+* `view`: un metodo pubblico che consente di visualizzare in console il saldo finale del conto corrente.
+
+```js
+class BankAccount {
+  constructor(EUR) {
+    this._EUR = EUR;
+  }
+  deposit(addEUR) {
+    this._EUR += addEUR;
+  }
+  withdraw(subtractEUR) {
+    this._EUR -= subtractEUR;
+  }
+  view() {
+    console.log(this._EUR);
+  }
+}
+
+const bankAccount = new BankAccount(1000);
+bankAccount.deposit(500);
+bankAccount.deposit(200);
+bankAccount.withdraw(800);
+bankAccount.view();
+```
