@@ -1271,3 +1271,48 @@ console.log(AreaCalculator.calculate(square));
 console.log(AreaCalculator.calculate(rectangle));
 console.log(AreaCalculator.calculate(circle));
 ```
+
+## 40 - Classes
+
+Definire la classe `Person` che accetta tre parametri nel costruttore: `firstName`, `lastName` e `age` e definisce per ciascuna di queste tre proprietà i rispettivi metodi getters e setters. Definire inoltre anche il metodo getter `fullName` che si occupa di restituire le proprietà nome e cognome concatenate.
+
+```js
+class Person {
+  constructor(firstName, lastName, age) {
+    this._firstName = firstName;
+    this._lastName = lastName;
+    this._age = age;
+  }
+
+  get firstName() {
+    return this._firstName;
+  }
+  get lastName() {
+    return this._lastName;
+  }
+  get age() {
+    return this._age;
+  }
+
+  set firstName(newFirstName) {
+    this._firstName = newFirstName;
+  }
+  set lastName(newLastName) {
+    this._lastName = newLastName;
+  }
+  set age(newAge) {
+    this._age = newAge;
+  }
+
+  get fullName() {
+    return `${this.firstName} ${this.lastName}`;
+  }
+}
+
+const person = new Person("Mario", "Rossi", 25);
+console.log(person.fullName);
+
+person.firstName = "Maria";
+person.lastName = "Verdi";
+console.log(person.fullName);
+```
