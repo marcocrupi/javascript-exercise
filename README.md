@@ -1333,3 +1333,20 @@ console.log("Before swap: ", num1, num2); // Before swap: 10 20
 
 console.log("After swap: ", num1, num2); // After swap: 20 10
 ```
+
+## 45 - Destructuring assignment
+
+Utilizzare la destrutturazione per eseguire l'assegnazione dei valori tramite un'unica linea di codice.
+
+```js
+const person = {
+  id: 1,
+  firstName: 'Mario',
+  lastName: 'Rossi',
+  age: 25
+};
+
+let {id, firstName,lastName,age} = person;
+
+console.log(id, firstName, lastName, age);
+```
