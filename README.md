@@ -1317,7 +1317,7 @@ person.lastName = "Verdi";
 console.log(person.fullName);
 ```
 
-## 44 - Classes
+## 44 - Destructuring assignment
 
 Utilizzare la destrutturazione, al posto di una variabile temporanea, per eseguire lo swapping delle variabili (per swapping s'intende lo scambio di valori tra due variabili).
 
