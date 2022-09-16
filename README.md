@@ -1370,3 +1370,27 @@ const person = {
 
 console.log(isAdult(person));
 ```
+
+## 47 - Destructuring assignment
+
+Utilizzare la destrutturazione per stampare la lista dei valori delle proprietà presenti in `person`:
+
+```
+id: 1
+firstName: Mario
+lastName: Rossi
+age: 25
+```
+
+```js
+const person = {
+  id: 1,
+  firstName: 'Mario',
+  lastName: 'Rossi',
+  age: 25
+};
+
+for (let [key,value] of Object.entries(person)) {
+  console.log(`${key}: ${value}`);
+}
+```
