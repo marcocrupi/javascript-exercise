@@ -1350,3 +1350,23 @@ let {id, firstName,lastName,age} = person;
 
 console.log(id, firstName, lastName, age);
 ```
+
+## 46 - Destructuring assignment
+
+Utilizzare la destrutturazione per semplificare il controllo sull'età della persona, modificando il parametro della funzione.
+Suggerimento: fare riferimento alla documentazione ufficiale <https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment>.
+
+```js
+function isAdult({age}) {
+  return age >= 18;
+}
+
+const person = {
+  id: 1,
+  firstName: 'Mario',
+  lastName: 'Rossi',
+  age: 25
+};
+
+console.log(isAdult(person));
+```
