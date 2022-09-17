@@ -1471,3 +1471,27 @@ function sum(...num) {
 
 console.log(sum(1, 2, 3, 4, 5));
 ```
+
+## 54 - Rest parameters and spread syntax
+
+Come posso migliorare la leggibilità del codice estraendo la proprietà `id` dall'oggetto `person` e mantenere aggregate il resto delle proprietà all'interno dell'oggetto `personInfo`?
+
+```js
+const person = {
+  id: 1,
+  firstName: 'Mario',
+  lastName: 'Rossi',
+  age: 25
+};
+
+
+const personInfo = {
+  firstName: person.firstName,
+  lastName: person.lastName,
+  age: person.age
+};
+
+const newObj = {...person, ...personInfo};
+
+console.log(newObj);
+```
