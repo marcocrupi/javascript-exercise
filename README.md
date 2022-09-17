@@ -1105,6 +1105,36 @@ console.log("secondMax:", secondMax(arr));
 console.log("Original array", arr);
 ```
 
+## Extra 2 - Array
+
+Scrivere una funzione che ti dica se  due parole sono anagrammi
+
+```js
+const stringOne = "incerta";
+const stringTwo = "trincea";
+
+const anagramDetect = (stringOne, stringTwo) => {
+  arrayOne = [];
+  arrayTwo = [];
+  for (i in stringOne) {
+    arrayOne.push(stringOne[i]);
+  }
+  for (i in stringTwo) {
+    arrayTwo.push(stringTwo[i]);
+  }
+  console.log(arrayOne);
+  console.log(arrayTwo);
+
+  if (arrayOne.sort().join(",") === arrayTwo.sort().join(",")) {
+    console.log("Le due parole sono anagrammi");
+  } else {
+    console.log("Le due parole non sono anagrammi");
+  }
+};
+
+anagramDetect(stringOne, stringTwo);
+```
+
 ## 34 - Classes
 
 Definire la classe `Person` che accetta due parametri nel costruttore `firstName` e `lastName`.
