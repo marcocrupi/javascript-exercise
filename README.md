@@ -1506,3 +1506,16 @@ let newNumber = 3;
 numberStore = [...numberStore, newNumber];
 console.log(numberStore);
 ```
+
+## 56 - Rest parameters and spread syntax
+
+Come migliorare il codice affinché si eviti di specificare ad uno a uno i valori da passare alla funzione `sum`?
+
+```js
+function sum(num1, num2, num3) {
+  return num1 + num2 + num3;
+}
+
+const numbers = [1, 2, 3];
+console.log(sum(...numbers));
+```
