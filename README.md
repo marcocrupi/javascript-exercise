@@ -1459,3 +1459,15 @@ const person = {
 const { id, firstName: name, lastName: surname, age: old } = person;
 console.log(id, name, surname, old);
 ```
+
+## 53 - Rest parameters and spread syntax
+
+La funzione `sum` presenta un elevato numero di parametri in ingresso, come possiamo migliorare il codice affinché eccetti un numero indefinito di valori da sommare?
+
+```js
+function sum(...num) {
+    return num[0] + num[1] + num[2] + num[3] + num[4];
+}
+
+console.log(sum(1, 2, 3, 4, 5));
+```
