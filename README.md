@@ -1495,3 +1495,14 @@ const newObj = {...person, ...personInfo};
 
 console.log(newObj);
 ```
+
+## 55 - Rest parameters and spread syntax
+
+Come mergiare il valore di `newNumber` all'interno di `numberStore` senza utilizzare il metodo `push`?
+
+```js
+let numberStore = [0, 1, 2];
+let newNumber = 3;
+numberStore = [...numberStore, newNumber];
+console.log(numberStore);
+```
