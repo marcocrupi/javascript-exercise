@@ -1530,6 +1530,23 @@ console.log(person1);
 console.log(person2);
 ```
 
+## 52 - JSON methods
+
+In questo esercizio occorre filtrare le proprietà dell'oggetto `person` affinché vengono codificate in json solo i valori numerici (vale a dire `id` e `age`).
+
+```js
+const person = {
+  id: 1,
+  firstName: 'Mario',
+  lastName: 'Rossi',
+  age: 25,
+};
+
+const json = JSON.stringify(person, person.firstName = undefined, person.lastName = undefined);
+
+console.log(json); // Should return: { id: 1, age: 25 }
+```
+
 ## 53 - Rest parameters and spread syntax
 
 La funzione `sum` presenta un elevato numero di parametri in ingresso, come possiamo migliorare il codice affinché eccetti un numero indefinito di valori da sommare?
