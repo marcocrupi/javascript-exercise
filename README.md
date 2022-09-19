@@ -1460,6 +1460,25 @@ const { id, firstName: name, lastName: surname, age: old } = person;
 console.log(id, name, surname, old);
 ```
 
+## 49 - JSON methods
+
+Implementare il codice necessario per convertire l'oggetto `developer` in un json.
+
+```js
+class Person {
+  constructor(id, firstName, lastName, age) {
+    this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+}
+
+const developer = new Person(1, 'Mario', 'Rossi', 25);
+// Print developer as json object
+const devJson = JSON.stringify(developer);
+```
+
 ## 53 - Rest parameters and spread syntax
 
 La funzione `sum` presenta un elevato numero di parametri in ingresso, come possiamo migliorare il codice affinché eccetti un numero indefinito di valori da sommare?
