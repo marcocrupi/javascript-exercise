@@ -1479,6 +1479,32 @@ const developer = new Person(1, 'Mario', 'Rossi', 25);
 const devJson = JSON.stringify(developer);
 ```
 
+## 50 - JSON methods
+
+Implementare il metodo `fromJson` che accetta un json e istanzia un oggetto di tipo `Person`.
+
+```js
+class Person {
+  constructor(id, firstName, lastName, age,json) {
+    this.id = id;
+    this.firstName = firstName;
+    this.lastName = lastName;
+    this.age = age;
+  }
+
+  toJson() {
+    return JSON.stringify(this);
+  }
+  static fromJson(json) {
+    return JSON.parse(json);
+  }
+}
+
+const json = '{"id":1,"firstName":"Mario","lastName":"Rossi","age":25}';
+const developer = Person.fromJson(json);
+console.log(developer);
+```
+
 ## 53 - Rest parameters and spread syntax
 
 La funzione `sum` presenta un elevato numero di parametri in ingresso, come possiamo migliorare il codice affinché eccetti un numero indefinito di valori da sommare?
