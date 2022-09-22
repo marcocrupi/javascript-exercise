@@ -1114,6 +1114,11 @@ const stringOne = "incerta";
 const stringTwo = "trincea";
 
 const anagramDetect = (stringOne, stringTwo) => {
+
+  // SOLUTION METHOD
+  // const arrayOne = stringOne.split("");
+  // const arrayTwo = stringTwo.split("");
+
   arrayOne = [];
   arrayTwo = [];
   for (i in stringOne) {
