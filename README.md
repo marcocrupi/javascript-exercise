@@ -2107,9 +2107,11 @@ Promise.race([promiseP, promiseJ]).then((values) => {
 });
 ```
 
-## 62 - Async Management
+## 62/63 - Async Management
 
-In questo esercizio occorre richiamare la funzione `fetchPersonById` passando come id il valore `2` e stampare il risultato restituito in console. Per ottenere il valore restituito dalla `Promise` utilizzare le keywords `async/await`.
+es. 62: In questo esercizio occorre richiamare la funzione `fetchPersonById` passando come id il valore `2` e stampare il risultato restituito in console. Per ottenere il valore restituito dalla `Promise` utilizzare le keywords `async/await`.
+
+es. 63: In questo esercizio è stato volutamente passato un id non valido alla funzione fetchPersonById. Implementare il codice necessario per gestire l'eccezione lanciata dalla Promise.
 
 ```js
 const persons = [
