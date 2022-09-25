@@ -2211,3 +2211,45 @@ Implementare il codice necessario per:
   }
 </script>
 ```
+
+## 64 - Browser Storing Data
+
+Implementare il codice necessario per:
+
+* Recuperare il post presente all'interno del LocalStorage (salvato tramite l'esercizio precedente)
+* Visualizzare all'interno dell'elemento `#post-title` il titolo del post recuperato dal LocalStorage
+
+```html
+<html>
+  <body>
+    <div id="container">
+      <button type="button" id="fetch-post" onclick="fetchPost()">
+        Fetch Post from LocalStorage
+      </button>
+
+      <h2>Post: <span id="post-title"></span></h2>
+    </div>
+  </body>
+</html>
+
+<script>
+  let post;
+  const titlePost = document.getElementById("post-title");
+
+  async function fetchPost() {
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts/1"
+      );
+      post = await response.json();
+      localStorage.setItem("post", JSON.stringify(post));
+      const getLocal = localStorage.getItem("post");
+      const parseLocal = JSON.parse(getLocal);
+      console.log(parseLocal);
+      titlePost.innerHTML = parseLocal.title;
+    } catch (err) {
+      console.log(err);
+    }
+  }
+</script>
+```
