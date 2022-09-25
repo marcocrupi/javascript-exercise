@@ -2253,3 +2253,42 @@ Implementare il codice necessario per:
   }
 </script>
 ```
+
+## 66 - Network Requests
+
+Implementare il codice necessario per recuperare tramite una richiesta HTTP la lista dei todos presente al seguente url: https://jsonplaceholder.typicode.com/todos. Successivamente creare dinamicamente una lista di elementi (`<li>`) contenente il titolo del todo (proprietà `title` presente nella collezione di oggetti restituiti dalla response) e appenderla all'elemento `.todo-list`.
+
+N.B: il body della response contiene la lista dei todos in formato json, utilizzare il metodo `.json` presente nella response per eseguire la deserializzazione.
+
+```html
+<html>
+  <body>
+    <div id="container">
+      <ul class="todo-list"></ul>
+    </div>
+  </body>
+</html>
+
+<script>
+  let todos;
+
+  async function fetchPost() {
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos"
+      );
+      todos = await response.json();
+      todos.forEach((element) => {
+        const ul = document.querySelector(".todo-list");
+        const li = document.createElement("li");
+        li.appendChild(document.createTextNode(element.title));
+        ul.appendChild(li);
+      });
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  fetchPost();
+</script>
+```
