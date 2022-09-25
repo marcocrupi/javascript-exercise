@@ -2161,3 +2161,53 @@ async function personAsync() {
 
 personAsync();
 ```
+
+## 64 - Browser Storing Data
+
+Implementare il codice necessario per:
+
+* Recuperare il post presente al seguente url: <https://jsonplaceholder.typicode.com/posts/1> al click del pulsante "Fetch Post"
+* Salvare il post sul localStorage al click del pulsante "Save Post on LocalStorage"
+* Per svolgere l'esercizio utilizzando Node, bisogna installare la libreria node-fetch, scrivendo nel terminale il seguente comando: npm i node-fetch.
+
+```html
+<html>
+  <body>
+    <div id="container">
+      <button type="button" id="fetch-post" onclick="fetchPost()">
+        Fetch Post
+      </button>
+      <button type="button" id="save-post" onclick="savePost()">
+        Save Post on LocalStorage
+      </button>
+    </div>
+  </body>
+</html>
+
+<script>
+  let post;
+
+  async function fetchPost() {
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/posts/1"
+      );
+      post = await response.json();
+      console.log(post);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  async function savePost() {
+    try {
+      localStorage.setItem("post", JSON.stringify(post));
+      const getLocal = localStorage.getItem("post");
+      const parseLocal = JSON.parse(getLocal);
+      console.log(parseLocal);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+</script>
+```
