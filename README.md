@@ -2212,7 +2212,7 @@ Implementare il codice necessario per:
 </script>
 ```
 
-## 64 - Browser Storing Data
+## 65 - Browser Storing Data
 
 Implementare il codice necessario per:
 
