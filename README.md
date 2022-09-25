@@ -2292,3 +2292,46 @@ N.B: il body della response contiene la lista dei todos in formato json, utilizz
   fetchPost();
 </script>
 ```
+
+## 67 - Network Requests
+
+Implementare il codice necessario per recuperare tramite una richiesta HTTP il todo con id 4 tramite il seguente url: https://jsonplaceholder.typicode.com/todos/4. Successivamente creare due elementi:
+
+* Un elemento `<h2>` contenente il titolo del todo (proprietà `title`)
+* Un elemento `<input type="checkbox">` con la proprietà `checked` impostata al valore presente per la proprietà `completed` del todo
+
+Appendere all'interno del container i due elementi precedentemente creati.
+
+```html
+<html>
+  <body>
+    <div id="container" style="display: flex; align-items: center;"></div>
+  </body>
+</html>
+
+<script>
+  let todos;
+
+  async function fetchPost() {
+    try {
+      const response = await fetch(
+        "https://jsonplaceholder.typicode.com/todos/4"
+      );
+      todos = await response.json();
+      console.log(todos);
+      const div = document.getElementById("container");
+      const h2 = document.createElement("h2");
+      const check = document.createElement("INPUT");
+      check.setAttribute("type", "checkbox");
+      check.checked = todos.completed;
+      h2.appendChild(document.createTextNode(todos.title));
+      div.appendChild(h2);
+      div.appendChild(check);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
+  fetchPost();
+</script>
+```
