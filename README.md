@@ -2335,3 +2335,128 @@ Appendere all'interno del container i due elementi precedentemente creati.
   fetchPost();
 </script>
 ```
+
+## 68 - Network Requests
+
+Implementare il codice necessario per eseguire una richiesta HTTP che si occupa di creare un nuovo post. Per creare un nuovo post utilizzare il seguente url: https://jsonplaceholder.typicode.com/posts (metodo: POST). Il corpo della richiesta deve contenere un oggetto post con le seguenti informazioni: `title` e flag `completed`. I dati del post dovranno essere trasmessi in seguito alla compilazione di un form.
+
+```html
+<html>
+  <body>
+    <div id="container">
+      <form
+        action="https://jsonplaceholder.typicode.com/users"
+        id="example-form"
+      >
+        <div>
+          <label>Title</label>
+          <input type="text" name="title" id="todo-title" />
+        </div>
+        <div>
+          <label>Completed</label>
+          <input type="checkbox" name="completed" id="todo-completed" />
+        </div>
+
+        <button type="submit" id="submit-todo" value="Create new post">
+          Submit
+        </button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const exampleForm = document.getElementById("example-form");
+
+  exampleForm.addEventListener("submit", handleFormSubmit);
+
+  async function handleFormSubmit(event) {
+    event.preventDefault();
+    const form = event.currentTarget;
+    const url = form.action;
+
+    try {
+      const formData = new FormData(form);
+
+      const responseData = await postFormDataAsJson({ url, formData });
+      console.log({ responseData });
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  async function postFormDataAsJson({ url, formData }) {
+    const plainFormData = Object.fromEntries(formData.entries());
+    const formDataJsonString = JSON.stringify(plainFormData);
+
+    const fetchOptions = {
+      method: "POST",
+
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+
+      body: formDataJsonString,
+    };
+
+    const response = await fetch(url, fetchOptions);
+
+    if (!response.ok) {
+      const errorMessage = await response.text();
+      throw new Error(errorMessage);
+    }
+
+    return response.json();
+  }
+</script>
+
+<!-- ALTERNATIVE VERSION WITHOUT FormData() -->
+
+<!-- <html>
+  <body>
+    <div id="container">
+      <form>
+        <div>
+          <label>Title</label>
+          <input type="text" id="todo-title" />
+        </div>
+        <div>
+          <label>Completed</label>
+          <input type="checkbox" id="todo-completed" />
+        </div>
+
+        <button type="submit" id="submit-todo">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+    async function createPost(e) {
+      e.preventDefault();
+
+      try {
+        const todoData = {
+          title: document.querySelector("#todo-title").value,
+          completed: document.querySelector("#todo-completed").checked,
+        }
+
+        const response = await fetch("https://jsonplaceholder.typicode.com/posts", {
+          method: 'POST',
+          headers: { 'Content-type': 'application/json; charset=utf-8' },
+          body: JSON.stringify(todoData),
+        });
+
+        const commit = await response.json();
+        console.log(commit);
+
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+document.getElementById("submit-todo").addEventListener('click', createPost);
+
+</script> -->
+```
