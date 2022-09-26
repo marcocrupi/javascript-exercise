@@ -2604,3 +2604,82 @@ Age: 25
   });
 </script>
 ```
+
+## 72 - Dom Tree
+
+Implementare il codice necessario per recuperare il valore di ciascun campo di input e creare un oggetto `person` contenente le proprietà: `firstName`, `lastName` e `age`. Infine recuperare l'elemento `form` e aggiungere l'attributo `data-person` contenente l'oggetto `person` in formato json.
+
+```html
+<html>
+  <body>
+    <div id="container">
+      <form>
+        <div>
+          <label class="label">First Name:</label>
+          <input type="text" class="form-input" id="firstName" value="Mario" />
+        </div>
+        <div>
+          <label class="label">Last Name:</label>
+          <input type="text" class="form-input" id="lastName" value="Rossi" />
+        </div>
+        <div>
+          <label class="label">Age:</label>
+          <input type="number" class="form-input" id="age" value="25" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const firstName = document.getElementById("firstName");
+  const lastName = document.getElementById("lastName");
+  const age = document.getElementById("age");
+  const labelF = document.getElementsByClassName("label")[0];
+  const labelL = document.getElementsByClassName("label")[1];
+  const labelA = document.getElementsByClassName("label")[2];
+
+  console.log(labelF.textContent, firstName.value);
+  console.log(labelL.textContent, lastName.value);
+  console.log(labelA.textContent, age.value);
+
+  const person = {
+    firstName: firstName.value,
+    lastName: lastName.value,
+    age: age.value,
+  };
+
+  console.log("object", person);
+
+  let jsonPerson;
+  jsonPerson = JSON.stringify(person);
+
+  const form = document.querySelector("form");
+  form.setAttribute("data-person", jsonPerson);
+  console.log(form.attributes);
+
+  const digit = (l, e) => {
+    console.log(l, e);
+    person.firstName = firstName.value;
+    person.lastName = lastName.value;
+    person.age = age.value;
+    jsonPerson = JSON.stringify(person);
+    console.log("object", person);
+    console.log(jsonPerson);
+    form.setAttribute("data-person", jsonPerson);
+    console.log(form.attributes);
+  };
+
+  firstName.addEventListener("input", function () {
+    digit(labelF.textContent, firstName.value);
+  });
+  lastName.addEventListener("input", function () {
+    digit(labelL.textContent, lastName.value);
+  });
+  age.addEventListener("input", function () {
+    digit(labelA.textContent, age.value);
+  });
+
+  console.log(jsonPerson);
+</script>
+```
