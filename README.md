@@ -2544,3 +2544,63 @@ N.B: utilizzare la classe come selettore.
   });
 </script>
 ```
+
+## 71 - Dom Tree
+
+Implementare il codice necessario per recuperare il valore di ciascun campo di input e della corrispettiva label associata.
+In console occorrerà stampare il seguente risultato:
+```
+First Name: Mario
+Last Name: Rossi
+Age: 25
+```
+
+```html
+<html>
+  <body>
+    <div id="container">
+      <form>
+        <div>
+          <label class="label">First Name:</label>
+          <input type="text" class="form-input" id="firstName" value="Mario" />
+        </div>
+        <div>
+          <label class="label">Last Name:</label>
+          <input type="text" class="form-input" id="lastName" value="Rossi" />
+        </div>
+        <div>
+          <label class="label">Age:</label>
+          <input type="number" class="form-input" id="age" value="25" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const firstName = document.getElementById("firstName");
+  const lastName = document.getElementById("lastName");
+  const age = document.getElementById("age");
+  const labelF = document.getElementsByClassName("label")[0];
+  const labelL = document.getElementsByClassName("label")[1];
+  const labelA = document.getElementsByClassName("label")[2];
+
+  console.log(labelF.textContent, firstName.value);
+  console.log(labelL.textContent, lastName.value);
+  console.log(labelA.textContent, age.value);
+
+  const digit = (l, e) => {
+    console.log(l, e);
+  };
+
+  firstName.addEventListener("input", function () {
+    digit(labelF.textContent, firstName.value);
+  });
+  lastName.addEventListener("input", function () {
+    digit(labelL.textContent, lastName.value);
+  });
+  age.addEventListener("input", function () {
+    digit(labelA.textContent, age.value);
+  });
+</script>
+```
