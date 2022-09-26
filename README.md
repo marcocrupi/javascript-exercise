@@ -2503,3 +2503,44 @@ N.B: utilizzare l'id come selettore.
   });
 </script>
 ```
+
+## 70 - Dom Tree
+
+Implementare il codice necessario per recuperare il contenuto del primo campo di testo e stamparlo in console.
+N.B: utilizzare la classe come selettore.
+
+```html
+<html>
+  <body>
+    <div id="container">
+      <form>
+        <div>
+          <label>First Name:</label>
+          <input type="text" class="form-input" id="firstName" value="Mario" />
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input type="text" class="form-input" id="lastName" value="Rossi" />
+        </div>
+        <div>
+          <label>Age:</label>
+          <input type="number" class="form-input" id="age" value="25" />
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const firstName = document.getElementsByClassName("form-input")[0];
+  console.log(firstName.value);
+
+  const digit = (e) => {
+    console.log(e);
+  };
+
+  firstName.addEventListener("input", function () {
+    digit(firstName.value);
+  });
+</script>
+```
