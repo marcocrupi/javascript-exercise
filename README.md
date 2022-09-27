@@ -2683,3 +2683,51 @@ Implementare il codice necessario per recuperare il valore di ciascun campo di i
   console.log(jsonPerson);
 </script>
 ```
+
+## 73 - Dom Tree
+
+Implementare il codice necessario per creare una tabella le cui righe sono generate dinamicamente.
+Al click del pulsante "Add Row" occorre richiamare la funzione `addRow`, la quale si occupa di creare dinamicamente un elemento `<tr>` contenente un campo di testo per ciascuna colonna: `firstName`, `lastName` e `age`. Appendere la riga generata al `<tbody>` della tabella.
+
+```html
+<html>
+  <body>
+    <div id="container">
+      <h2>Person's List</h2>
+      <table id="person-table">
+        <tbody></tbody>
+      </table>
+      <button id="add-row">Add row</button>
+    </div>
+  </body>
+</html>
+
+<script>
+  const thead = ["firstname", "lastName", "age"];
+  const button = document.getElementById("add-row");
+  const tbody = document.querySelector("tbody");
+
+  function createThead() {
+    const tableHead = tbody.insertRow(0);
+
+    thead.forEach((element) => {
+      const headElements = document.createElement("th");
+      headElements.innerHTML = element;
+      tableHead.appendChild(headElements);
+    });
+  }
+
+  createThead();
+
+  const addRow = () => {
+    const newRow = tbody.insertRow(-1);
+    thead.forEach((element) => {
+      const input = document.createElement("td");
+      input.innerHTML = `<input type="text">`;
+      newRow.appendChild(input);
+    });
+  };
+
+  button.addEventListener("click", addRow);
+</script>
+```
