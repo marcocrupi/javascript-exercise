@@ -2731,3 +2731,77 @@ Al click del pulsante "Add Row" occorre richiamare la funzione `addRow`, la qual
   button.addEventListener("click", addRow);
 </script>
 ```
+
+## 74 - Dom Tree
+
+Implementare il codice necessario per generare dinamicamente il form `person-form`.
+Al caricamento della pagina occorre creare ed eseguire la funzione `initForm` che si occuperà di generare dinamicamente e aggiungere al form i campi: `firstName`, `lastName` e `age`.
+Al click del pulsante "Submit" del form richiamare il metodo `submitPersonForm`, il quale si dovrà occupare di:
+* Prevenire l'evento di default che avviene al submit del form
+* Creare un oggetto `person` contenente i valori del form popolato dall'utente
+* Eseguire il `console.log` dell'oggetto `person` creato
+
+```html
+<html>
+  <body>
+    <div id="container">
+      <h2>Person's Form</h2>
+      <form id="person-form">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const form = document.getElementById("person-form");
+
+  const initForm = () => {
+    const inputTitle = ["firstName", "lastName", "age"];
+
+    // Potevo semplicemente cambiare l'ordine dell'array,
+    // ma ho preferito imparare come fare un reverse forEach.
+    inputTitle
+      .slice()
+      .reverse()
+      .forEach((element) => {
+        const divElement = document.createElement("div");
+        const labelElement = document.createElement("label");
+        const inputElement = document.createElement("input");
+        inputElement.setAttribute("id", `${element}-input`);
+        labelElement.innerHTML = element;
+
+        if (element === "firstName") {
+          inputElement.type = "text";
+          inputElement.pattern = "^[a-zA-Z]+$";
+        } else if (element === "lastName") {
+          inputElement.type = "text";
+          inputElement.pattern = "^[a-zA-Z]+$";
+        } else if (element === "age") {
+          inputElement.type = "number";
+        }
+
+        const form = document.getElementById("person-form");
+        form.prepend(divElement);
+        divElement.append(labelElement, inputElement);
+      });
+  };
+
+  initForm();
+
+  function submitPersonForm(e) {
+    e.preventDefault();
+    const firstName = document.getElementById("firstName-input").value;
+    const lastName = document.getElementById("lastName-input").value;
+    const age = document.getElementById("age-input").value;
+    const person = {
+      firstName: firstName,
+      lastName: lastName,
+      age: age,
+    };
+    console.log(person);
+  }
+
+  form.addEventListener("submit", submitPersonForm);
+</script>
+```
