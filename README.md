@@ -2889,3 +2889,39 @@ Creare un listener per l'evento `personFormLoaded` che si occupa di stampare in 
   form.addEventListener("submit", submitPersonForm);
 </script>
 ```
+
+## 76 - Dom Tree
+
+Implementare il codice necessario per farsì che al passaggio del mouse sopra un elemento `.hero-list-item`, quest'ultimo venga evidenziato di rosso. Quando poi il mouse si sposta fuori dall'area dell'elemento, quest'ultimo deve ritornare ad avere il colore orginario (`transparent`).
+
+```html
+<html>
+  <body>
+    <div id="container">
+      <h2>Hero's List</h2>
+      <ul class="hero-list">
+        <li class="hero-list-item">Batman</li>
+        <li class="hero-list-item">Superman</li>
+        <li class="hero-list-item">Spiderman</li>
+        <li class="hero-list-item">Hulk</li>
+        <li class="hero-list-item">Wolverine</li>
+      </ul>
+    </div>
+  </body>
+</html>
+
+<script>
+  const items = document.querySelectorAll(".hero-list-item");
+
+  items.forEach((item) => {
+    item.addEventListener("mouseenter", () => {
+      item.style.textDecoration = "underline";
+      item.style.color = "red";
+    });
+    item.addEventListener("mouseleave", () => {
+      item.style.textDecoration = "unset";
+      item.style.color = "unset";
+    });
+  });
+</script>
+```
