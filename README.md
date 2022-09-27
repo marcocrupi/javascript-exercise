@@ -2769,6 +2769,7 @@ Al click del pulsante "Submit" del form richiamare il metodo `submitPersonForm`,
         const labelElement = document.createElement("label");
         const inputElement = document.createElement("input");
         inputElement.setAttribute("id", `${element}-input`);
+        inputElement.setAttribute("placeholder", `${element}`);
         labelElement.innerHTML = element;
 
         if (element === "firstName") {
