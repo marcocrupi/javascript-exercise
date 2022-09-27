@@ -2806,3 +2806,86 @@ Al click del pulsante "Submit" del form richiamare il metodo `submitPersonForm`,
   form.addEventListener("submit", submitPersonForm);
 </script>
 ```
+
+## 75 - Dom Tree
+
+Dal codice precedente creare l'evento custom `personFormLoaded` da dispatchare una volta eseguito l'init del form (`initForm`).
+Creare un listener per l'evento `personFormLoaded` che si occupa di stampare in console il messaggio "Person Form Loaded".
+
+```html
+<html>
+  <body>
+    <div id="container">
+      <h2>Person's Form</h2>
+      <form id="person-form">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  const form = document.getElementById("person-form");
+
+  const initForm = () => {
+    const inputTitle = ["firstName", "lastName", "age"];
+
+    // Potevo semplicemente cambiare l'ordine dell'array,
+    // ma ho preferito imparare come fare un reverse forEach.
+    inputTitle
+      .slice()
+      .reverse()
+      .forEach((element) => {
+        const divElement = document.createElement("div");
+        const labelElement = document.createElement("label");
+        const inputElement = document.createElement("input");
+        inputElement.setAttribute("id", `${element}-input`);
+        inputElement.setAttribute("placeholder", `${element}`);
+        labelElement.innerHTML = element;
+
+        if (element === "firstName") {
+          inputElement.type = "text";
+          inputElement.pattern = "^[a-zA-Z]+$";
+        } else if (element === "lastName") {
+          inputElement.type = "text";
+          inputElement.pattern = "^[a-zA-Z]+$";
+        } else if (element === "age") {
+          inputElement.type = "number";
+        }
+
+        const form = document.getElementById("person-form");
+        form.prepend(divElement);
+        divElement.append(labelElement, inputElement);
+      });
+  };
+
+  initForm();
+
+  const event = new CustomEvent("personFormLoaded", {
+    detail: {
+      message: "Person form loaded",
+    },
+  });
+
+  window.addEventListener("personFormLoaded", (e) => {
+    console.log(e.detail.message);
+  });
+
+  window.dispatchEvent(event);
+
+  function submitPersonForm(e) {
+    e.preventDefault();
+    const firstName = document.getElementById("firstName-input").value;
+    const lastName = document.getElementById("lastName-input").value;
+    const age = document.getElementById("age-input").value;
+    const person = {
+      firstName: firstName,
+      lastName: lastName,
+      age: age,
+    };
+    console.log(person);
+  }
+
+  form.addEventListener("submit", submitPersonForm);
+</script>
+```
