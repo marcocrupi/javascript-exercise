@@ -2528,6 +2528,129 @@ document.getElementById("submit-todo").addEventListener('click', createPost);
 </script> -->
 ```
 
+## Extra 4 - Network Requests
+
+USA LA FORZA LUKE
+
+SWAPI è un'API online che ci permette di ottenere informazioni sull'universo di Star Wars.
+
+Step 1: 
+Crea un button che quando premuto recuperi i dati a https://swapi.dev/api/people e stampi in HTML i nomi contenuti in lista.
+
+Step 2: 
+Aggiungi 2 button, "avanti" e "indietro", che quando premuti ci permettano di fetchare le pagine precedenti o successive e stampare in HTML i risultati.
+
+ex.
+https://swapi.dev/api/people?page=1
+https://swapi.dev/api/people?page=2
+https://swapi.dev/api/people?page=3
+
+Step 3: 
+Ogni personaggio fetchato con le api https://swapi.dev/api/people ha associato un pianeta di origine.
+
+ex. 
+{
+    ...
+    "homeworld": "https://swapi.dev/api/planets/1"
+}
+
+per ogni personaggio stampato in pagina, vogliamo accanto il nome del pianeta di origine.
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+</head>
+
+<body>
+<button id="prevButton">
+  Prev
+</button>
+
+<button id="nextButton">
+  Next
+</button>
+
+<button id="fetchButton">
+  Fetch
+</button>
+
+<ul id="peopleList">
+
+</ul>
+
+  <script src="./script.js"></script>
+  </div>
+</body>
+
+</html>
+
+<script>
+const fetchButton = document.getElementById("fetchButton");
+const nextButton = document.getElementById("nextButton");
+const prevButton = document.getElementById("prevButton");
+const peopleList = document.getElementById("peopleList");
+
+let prevUrl = "https://swapi.dev/api/people";
+let nextUrl = "https://swapi.dev/api/people";
+
+const fetchMyData = async (url) => {
+  const resp = await fetch(url);
+  const data = await resp.json();
+  return data;
+};
+
+const renderPeopleList = (list) => {
+  // Prima di stampare cancella gli elementi precedenti e stampa quelli successivi
+  peopleList.innerHTML = "";
+
+  list.forEach((content) => {
+    console.log(content);
+    const li = document.createElement("li");
+    li.append(content);
+    peopleList.append(li);
+  });
+};
+
+const renderPage = async (url) => {
+  const data = await fetchMyData(url);
+  prevUrl = data.previous;
+  nextUrl = data.next;
+
+  const list = await Promise.all(
+    data.results.map(async (person) => {
+      const homeworld = await fetchMyData(person.homeworld);
+      return `${person.name} - ${homeworld.name}`;
+    })
+  );
+  renderPeopleList(list);
+};
+
+prevButton.addEventListener("click", async () => {
+  // se prevUrl è null non lo chiama
+  if (prevUrl) {
+    renderPage(prevUrl);
+  }
+});
+
+nextButton.addEventListener("click", async () => {
+  // se nextUrl è null non lo chiama
+  if (nextUrl) {
+    renderPage(nextUrl);
+  }
+});
+
+fetchButton.addEventListener("click", async () => {
+  renderPage("https://swapi.dev/api/people");
+});
+</script>
+```
+
 ## 69 - Dom Tree
 
 Implementare il codice necessario per recuperare il contenuto del campo di testo `firstName` e stamparlo in console.
