@@ -1205,6 +1205,36 @@ const anagramDetect = (stringOne, stringTwo) => {
 anagramDetect(stringOne, stringTwo);
 ```
 
+## Extra 5 - Array
+
+Filtrare i numeri pari da un array.
+
+```js
+let buffer = [02, 23, 4, 23, 3, 23423, 42, 31, 23, 12, 34, 5, 2];
+
+function findEvenNumbers(array) {
+  let result = array.filter((el) => el % 2 == 0);
+  console.log(result);
+}
+
+findEvenNumbers(buffer);
+```
+
+## Extra 6 - Array
+
+Filtrare i numeri dispari da un array.
+
+```js
+let buffer = [02, 23, 4, 23, 3, 23423, 42, 31, 23, 12, 34, 5, 2];
+
+function findOddNumbers(array) {
+  let result = array.filter((el) => el % 2 == 1);
+  console.log(result);
+}
+
+findOddNumbers(buffer);
+```
+
 ## 34 - Classes
 
 Definire la classe `Person` che accetta due parametri nel costruttore `firstName` e `lastName`.
